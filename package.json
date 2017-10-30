@@ -1,0 +1,31 @@
+{
+  "name": "nodeploy",
+  "version": "1.0.0",
+  "description": "Git Automatit Deployment management.",
+  "main": "nodeploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "process-manager",
+    "automatic-deploy",
+    "deploy"
+  ],
+  "author": "Noman Hasan",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "compression": "^1.7.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-ws": "^3.0.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "request": "^2.83.0",
+    "rimraf-promise": "^2.0.0",
+    "socket.io": "^2.0.4"
+  }
+}
