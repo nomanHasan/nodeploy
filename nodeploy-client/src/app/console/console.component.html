@@ -1,10 +1,46 @@
-<div class="jumbotron">
-  <h1>Hacker Bootstrap</h1>
-  <p>A Bootstrap theme for 31337 H4X0RS. Inspired by the classic green on black terminal style, this bootstrap theme will make your website 1337.</p>
-  <p>To hack around with the source or contribute, check out the project on Github</p>
-  {{data}}
-  <p>
-      <a class="btn btn-lg btn-primary" href="//github.com/brobin/hacker-bootstrap/" role="button">View on Github »</a>
-      <a class="btn btn-primary" href="//github.com/brobin/hacker-bootstrap/" id="stars">Execute</a>
-  </p>
-</div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Hacker Bootstrap Theme</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        
+                    </li>
+                    <li>
+                        <a href="//reddit.com/r/itsaunixsystem" target="_blank">H4x0rs Only</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+          <h1>Terminal</h1>
+          <p *ngFor="let log of logs">
+            {{log}}
+          </p>
+          <p>
+              <a class="btn btn-lg btn-primary" href="//github.com/brobin/hacker-bootstrap/" role="button">View on Github »</a>
+              <a class="btn btn-primary" href="//github.com/brobin/hacker-bootstrap/" id="stars">Execute</a>
+          </p>
+        </div>
+
+        <div class="row tall-row">
+            <div class="col-md-12">
+                <p>Created by <a href="//brobin.me">Tobin Brown</a>. &copy; 2015</p>
+            </div>
+        </div>
+
+    </div>

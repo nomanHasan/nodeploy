@@ -12,11 +12,13 @@ export class ConsoleComponent implements OnInit {
     private consoleService: ConsoleService
   ) { }
 
-  data;
+  logs: Array<string> = [];
 
   ngOnInit() {
     this.consoleService.messages.subscribe(data => {
-      this.data = data;
+      this.logs.push(data.data)
+      console.log(data)
+      console.log(data.data)
     })
 
   }

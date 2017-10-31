@@ -1,8 +1,9 @@
 var express = require('express')
 
 var router = express.Router()
+// var r  = require('../../../../../../hoxro.visualstudio/hoxro-ui-Copy')
 
-const CWD = '../Repo/hoxro-ui'
+const CWD = '../../../../../../hoxro.visualstudio/hoxro-ui-Copy'
 
 var gitShell = require('../../programs/git')
 var npmShell = require('../../programs/npm')
@@ -69,22 +70,35 @@ const { spawn } = require('child_process');
 
 router.ws('/', async function (ws, req) {
 
-    let message = "";
+    console.log('Githook Executed')
 
-    ws.on('message', function (msg) {
-        ws.send('Githook ' + msg);
-    });
+    let gitStatus, pullStatus, buildStatus, startStatus;
 
     try {
+
         gitStatus = await gitShell.gitStatus(CWD, ws)
-        
+
         pullStatus = await gitShell.gitPull(CWD, ws)
 
-        buildStatus = await npmShell.npmBuild(CWD, ws)
+        // buildStatus = await npmShell.npmBuild(CWD, ws)
+
+        // startStatus = await npmShell.npmStart(CWD, ws)
+
+    } catch (error) {
+
+        console.error(`${error}`)
+
+        return res.status(400).json({
+            status: 400,
+            message: error
+        })
     }
-    catch (e) {
-        console.log(e)
-    }
+
+
+    ws.send(new Date() + " ")
+
+
+
 })
 
 module.exports = router;

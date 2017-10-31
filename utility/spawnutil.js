@@ -9,18 +9,19 @@ exports.PromisifySpawn  = function (spawn, ws) {
 
         spawn.stdout.on('data', (data) => {
             output += `${STDOUT} ${data}`;
-            ws.send(output)
+            ws.send(STDOUT)
+            ws.send(`${data}`)
         })
 
         spawn.stderr.on('data', (err) => {
             output+=`${STDERR} ${err}`
-            ws.send(output)
-            reject(err)
+            ws.send(STDERR)
+            ws.send(`${err}`)
         })
 
         spawn.on('close', code => {
             output+=`${APPLICATION_EXIT} ${code}`
-            ws.send(output)
+            ws.send(`${APPLICATION_EXIT} ${code}`)
             resolve(output)
         })
     })
