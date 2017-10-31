@@ -8,10 +8,10 @@ const { spawn } = require('child_process');
 
 
 
-exports.npmBuild = function (cwd) {
+exports.npmBuild = function (cwd, ws) {
     return PromisifySpawn(spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['run', 'build:prod'], {
         cwd: cwd
-    }))
+    }), ws)
 }
 
 exports.npmStart = function (cwd) {

@@ -1,0 +1,5 @@
+/node_modules
+/dist
+
+/nodeploy-client/node_modules
+/nodeploy-client/dist

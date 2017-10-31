@@ -2,7 +2,7 @@ var express = require('express')
 
 var router = express.Router()
 
-
+const CWD = '../Repo/hoxro-ui'
 
 var gitShell = require('../../programs/git')
 var npmShell = require('../../programs/npm')
@@ -17,13 +17,13 @@ router.get('/', async function (req, res, next) {
 
     try {
 
-        gitStatus = await gitShell.gitStatus('./hoxro-ui')
+        gitStatus = await gitShell.gitStatus(CWD)
 
-        pullStatus = await gitShell.gitPull('./hoxro-ui')
+        pullStatus = await gitShell.gitPull(CWD)
 
-        buildStatus = await npmShell.npmBuild('./hoxro-ui')
+        buildStatus = await npmShell.npmBuild(CWD)
 
-        startStatus = await npmShell.npmStart('./hoxro-ui')
+        startStatus = await npmShell.npmStart(CWD)
 
     } catch (error) {
 
@@ -63,10 +63,28 @@ router.get('/', async function (req, res, next) {
 })
 
 
-router.ws('/', function (ws, req) {
+
+
+const { spawn } = require('child_process');
+
+router.ws('/', async function (ws, req) {
+
+    let message = "";
+
     ws.on('message', function (msg) {
-        ws.send('Githook '+msg);
+        ws.send('Githook ' + msg);
     });
+
+    try {
+        gitStatus = await gitShell.gitStatus(CWD, ws)
+        
+        pullStatus = await gitShell.gitPull(CWD, ws)
+
+        buildStatus = await npmShell.npmBuild(CWD, ws)
+    }
+    catch (e) {
+        console.log(e)
+    }
 })
 
 module.exports = router;
