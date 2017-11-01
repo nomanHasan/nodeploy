@@ -19,7 +19,7 @@ router.get('/', async function (req, res, next) {
                 }
             ]
         })
-
+        
         var projects = await projectService.getProjects()
     } catch (e) {
         console.log(e)

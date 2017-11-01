@@ -10,11 +10,14 @@ var http = require('http');
 var fs = require('fs');
 const morgan = require('morgan')
 
+var bodyParser = require('body-parser');
 
 var io = require('socket.io')(http);
 
 
 app.use(morgan('dev'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compress());
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');

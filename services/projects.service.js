@@ -1,5 +1,4 @@
-var Datastore = require('nedb'), db = new Datastore({ filename: './nodeploy.db', autoload: true });
-
+var db = require('../db/db')
 
 exports.getProjects = function () {
     return new Promise((resolve, reject) => {
