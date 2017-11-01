@@ -10,7 +10,14 @@ router.get('/', async function (req, res, next) {
 
         var ins = await projectService.insertProject({
             project_name: "hxui",
-            created_date:new Date()
+            created_date:new Date(),
+            commands:[
+                {
+                    application: "git",
+                    arguments: "status",
+                    order: 0
+                }
+            ]
         })
 
         var projects = await projectService.getProjects()
