@@ -7,6 +7,9 @@ import { ConsoleComponent } from './console/console.component';
 import { ConsoleService } from './services/console.service';
 import { WebsocketService } from './services/websocket.service';
 
+
+import { FormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +17,7 @@ import { WebsocketService } from './services/websocket.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [

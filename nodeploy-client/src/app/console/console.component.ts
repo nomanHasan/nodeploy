@@ -12,6 +12,12 @@ export class ConsoleComponent implements OnInit {
     private consoleService: ConsoleService
   ) { }
 
+
+  newCommand = {
+    application:"",
+    arguments:""
+  };
+
   logs: Array<string> = [];
 
   ngOnInit() {

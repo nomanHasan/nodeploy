@@ -1,3 +1,9 @@
 p{
-    white-space: pre;
+    white-space: pre-line;
+    font-size: 14px;
+}
+
+.jumbotron{
+    height: 500px;
+    overflow: auto;
 }

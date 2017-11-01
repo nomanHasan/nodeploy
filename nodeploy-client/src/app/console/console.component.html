@@ -1,46 +1,68 @@
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Hacker Bootstrap Theme</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        
-                    </li>
-                    <li>
-                        <a href="//reddit.com/r/itsaunixsystem" target="_blank">H4x0rs Only</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container">
-
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-          <h1>Terminal</h1>
-          <p *ngFor="let log of logs">
-            {{log}}
-          </p>
-          <p>
-              <a class="btn btn-lg btn-primary" href="//github.com/brobin/hacker-bootstrap/" role="button">View on Github »</a>
-              <a class="btn btn-primary" href="//github.com/brobin/hacker-bootstrap/" id="stars">Execute</a>
-          </p>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hacker Bootstrap Theme</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
 
-        <div class="row tall-row">
-            <div class="col-md-12">
-                <p>Created by <a href="//brobin.me">Tobin Brown</a>. &copy; 2015</p>
+                </li>
+                <li>
+                    <a href="//reddit.com/r/itsaunixsystem" target="_blank">H4x0rs Only</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+
+    <h1>Terminal</h1>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <p *ngFor="let log of logs">
+            {{log}}
+        </p>
+    </div>
+
+    <div class="row tall-row">
+        <div class="col-md-12">
+            <div class="well" style="overflow: auto;">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input class="form-control" id="focusedInput" [(ngModel)]="newCommand.application" placeholder="Application Command" type="text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input class="form-control" id="focusedInput" [(ngModel)]="newCommand.arguments" placeholder="Arguments" type="text">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                        <a class="btn btn-primary" role="button">Add Commands</a>
+                </div>
             </div>
         </div>
-
+        <div class="col-md-12">
+            <p>
+                <a class="btn btn-primary" id="stars">Execute</a>
+            </p>
+        </div>
     </div>
+    <div class="row tall-row">
+        <div class="col-md-12">
+            <p>Nodeploy - by
+                <a href="#">Noman Hasan</a>. &copy; 2017</p>
+        </div>
+    </div>
+
+</div>
