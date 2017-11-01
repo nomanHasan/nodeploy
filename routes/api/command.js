@@ -21,7 +21,7 @@ router.post('/:projectId', async function (req, res, next) {
 
     console.log('POST COMMAND')
 
-    // let projectId = req.params.projectId;
+    let projectId = req.params.projectId;
 
     let command = {
          application: req.body.application,
@@ -31,12 +31,12 @@ router.post('/:projectId', async function (req, res, next) {
 
     console.log(command)
 
-    // try {
-    //     var commands = await commandService.getCommands(projectId)
-    // } catch (e) {
-    //     console.log(e)
-    //     return res.status(400).json(e)
-    // }
+    try {
+        var commands = await commandService.insertCommand(projectId, command)
+    } catch (e) {
+        console.log(e)
+        return res.status(400).json(e)
+    }
 
 
     return res.status(200).json(command)

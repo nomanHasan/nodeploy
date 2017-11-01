@@ -4,8 +4,8 @@ var router = express.Router()
 // var r  = require('../../../../../../hoxro.visualstudio/hoxro-ui-Copy')
 // var r  = require('../../../Repo/hoxro-ui')
 
-// const CWD = '../../../../../../hoxro.visualstudio/hoxro-ui-Copy'
-const CWD = '../../../Repo/hoxro-ui'
+const CWD = '../../../../../../hoxro.visualstudio/hoxro-ui-Copy'
+// const CWD = '../../../Repo/hoxro-ui'
 
 var gitShell = require('../../programs/git')
 var npmShell = require('../../programs/npm')

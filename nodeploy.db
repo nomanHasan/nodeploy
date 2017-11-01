@@ -1,5 +1,1 @@
-{"project_name":"hxui","created_date":{"$$date":1509537574322},"commands":[{"application":"git","arguments":"status","order":0}],"_id":"BxBbbGSk9qAat5Ur"}
-{"project_name":"hxui","_id":"Lr0zvJkkdo2MQSiz"}
-{"project_name":"hxui","created_date":{"$$date":1509534790553},"_id":"OntxY5UPYY0DPspB"}
-{"project_name":"hxui","created_date":{"$$date":1509534797076},"_id":"UhRyRGg53qfHk60m"}
-{"project_name":"hxui","created_date":{"$$date":1509537383210},"commands":[{"application":"git","arguments":"status","order":0}],"_id":"vmiojtNK2slx0G2R"}
+{"project_name":"hoxro-ui","created_date":{"$$date":1509564230393},"commands":[{"application":"git","arguments":"status","order":0},{"application":"git","arguments":"pull origin master","order":1},{"application":"npm","arguments":"install","order":2},{"application":"npm","arguments":"run build:prod","order":3},{"application":"npm","arguments":"start","order":4}],"_id":"W28NI5QJjEVR5AxN"}

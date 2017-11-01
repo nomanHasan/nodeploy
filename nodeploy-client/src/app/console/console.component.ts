@@ -1,3 +1,4 @@
+import { CommandService } from '../services/command.service';
 import { Component, OnInit } from '@angular/core';
 import { ConsoleService } from '../services/console.service';
 
@@ -9,7 +10,8 @@ import { ConsoleService } from '../services/console.service';
 export class ConsoleComponent implements OnInit {
 
   constructor(
-    private consoleService: ConsoleService
+    private consoleService: ConsoleService,
+    private commandService: CommandService
   ) { }
 
 
@@ -19,12 +21,18 @@ export class ConsoleComponent implements OnInit {
   };
 
   logs: Array<string> = [];
+  projects = {}
 
   ngOnInit() {
     this.consoleService.messages.subscribe(data => {
       this.logs.push(data.data)
       console.log(data)
       console.log(data.data)
+    })
+
+    this.commandService.getProject().subscribe(res => {
+      console.log(res)
+      this.projects = res;
     })
 
   }
