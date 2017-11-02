@@ -1,6 +1,6 @@
 # Nodeploy
 
-A Deployer program to deploy your nodejs application to any operating system, environment of your choice.
+A Deployer program to deploy your nodejs application to any operating system, environment of your choice. It can be used to deploy any NodeJS application, but it's pre-configured to handle front-end servers.  
 
 ## Features
 
