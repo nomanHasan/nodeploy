@@ -1,3 +1,4 @@
+import { ProjectService } from './services/project.service';
 import { CommandService } from './services/command.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,11 +11,13 @@ import { WebsocketService } from './services/websocket.service';
 import {HttpClientModule} from '@angular/common/http'
 
 import { FormsModule } from "@angular/forms";
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConsoleComponent
+    ConsoleComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { FormsModule } from "@angular/forms";
   providers: [
     ConsoleService,
     WebsocketService,
+    ProjectService,
     CommandService
   ],
   bootstrap: [AppComponent]

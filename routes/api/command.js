@@ -5,11 +5,12 @@ var router = express.Router()
 var commandService = require('../../services/command.service')
 
 
-router.get('/:projectId', async function (req, res, next) {
-    let projectId = req.params.projectId;
-
+router.get('/:project_id', async function (req, res, next) {
+    let projectId = req.params.project_id ? req.params.project_id : 0;
+    console.log(projectId)
+    var commands;
     try {
-        var commands = await commandService.getCommands(projectId)
+        commands = await commandService.getCommands(projectId)
     } catch (e) {
         console.log(e)
         return res.status(400).json(e)

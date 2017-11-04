@@ -1,1 +1,1 @@
-{"project_name":"hoxro-ui","created_date":{"$$date":1509564230393},"commands":[{"application":"git","arguments":"status","order":0},{"application":"git","arguments":"pull origin master","order":1},{"application":"npm","arguments":"install","order":2},{"application":"npm","arguments":"run build:prod","order":3},{"application":"npm","arguments":"start","order":4}],"_id":"W28NI5QJjEVR5AxN"}
+{"name":"hoxro-ui","description":"hoxro-ui Project","path":"../../","created_date":{"$$date":1509817612523},"_id":"uZbcvQzeeT6W0UBW"}

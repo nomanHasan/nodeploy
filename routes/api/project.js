@@ -8,37 +8,6 @@ var projectService = require('../../services/projects.service')
 router.get('/', async function (req, res, next) {
     try {
 
-        // var ins = await projectService.insertProject({
-        //     project_name: "hoxro-ui",
-        //     created_date:new Date(),
-        //     commands:[
-        //         {
-        //             application: "git",
-        //             arguments: "status",
-        //             order: 0
-        //         },
-        //         {
-        //             application: "git",
-        //             arguments: "pull origin master",
-        //             order: 1
-        //         },
-        //         {
-        //             application: "npm",
-        //             arguments: "install",
-        //             order: 2
-        //         },
-        //         {
-        //             application: "npm",
-        //             arguments: "run build:prod",
-        //             order: 3
-        //         },
-        //         {
-        //             application: "npm",
-        //             arguments: "start",
-        //             order: 4
-        //         }
-        //     ]
-        // })
         
         var projects = await projectService.getProjects()
     } catch (e) {
@@ -50,6 +19,86 @@ router.get('/', async function (req, res, next) {
     console.log(projects)
 
     return res.status(200).json(projects)
+})
+
+
+router.post('/', async function(req, res, next){
+    
+    var newProject = {};
+
+    newProject.name = req.body.name;
+    newProject.description = req.body.description;
+    newProject.path = req.body.path;
+    
+    try{
+        var newProject = await projectService.insertProject(newProject)
+    }catch(e){
+        console.log(e)
+
+        return res.status(400).json({
+            status: 400,
+            message: "Project could not be created"
+        })
+    }
+
+    return res.status(200).json({
+        status: 200,
+        message: "Project succesfully opened",
+        project: newProject
+    })
+
+})
+
+
+router.put('/', async function(req, res, next){
+
+    var id = req.body._id;
+    
+    var newProject = {};
+
+    newProject.name = req.body.name;
+    newProject.description = req.body.description;
+    newProject.path = req.body.path;
+    
+    try{
+        var newProject = await projectService.editProject(id, newProject)
+    }catch(e){
+        console.log(e)
+
+        return res.status(400).json({
+            status: 400,
+            message: "Project could not be Edited"
+        })
+    }
+
+    return res.status(200).json({
+        status: 200,
+        message: "Project succesfully Edited",
+        project: newProject
+    })
+
+})
+router.delete('/:id', async function(req, res, next){
+
+    var id = req.params.id;
+    
+    try{
+        var newProject = await projectService.deleteProject(id)
+    }catch(e){
+        console.log(e)
+
+        return res.status(400).json({
+            status: 400,
+            message: "Project could not be Deleted"
+        })
+    }
+    
+    return res.status(200).json({
+        status: 200,
+        message: "Project succesfully Deleted",
+        project: newProject
+    })
+
 })
 
 

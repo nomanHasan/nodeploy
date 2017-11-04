@@ -4,6 +4,7 @@
   "description": "Git Automatit Deployment management.",
   "main": "nodeploy.js",
   "scripts": {
+    "start": "nodemon nodeploy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

@@ -1,0 +1,42 @@
+<ul class="list-group" >
+  <li *ngFor="let project of projects" [routerLink]="['/projects/', project._id]" class="list-group-item">
+    <div class="row">
+      <div class="col-md-2">{{project.name}}</div>
+      <div class="col-md-3">{{project.description}}</div>
+      <div class="col-md-3">{{project.path}}</div>
+      <div class="col-md-2">{{project.created_date| date}}</div>
+      <div class="col-md-2">
+        <button class="btn btn-danger" (click)="deleteProjcect(project._id, $event)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<div>
+
+  <form class="form-group" action="">
+    <div class="row">
+
+      <div class="col-md-3">
+
+        <input type="text" class="form-control" placeholder="Name" name="name" id="name" [(ngModel)]="newProject.name">
+      </div>
+      <div class="col-md-4">
+
+        <input type="text" class="form-control" placeholder="Description" name="name" id="name" [(ngModel)]="newProject.description">
+      </div>
+      <div class="col-md-3">
+
+        <input type="text" class="form-control" placeholder="Path" id="file" name="file" [(ngModel)]="newProject.path"/>
+      </div>
+
+      <div class="col-md-2">
+
+        <input type="submit" class="btn btn-primary" (click)="onSubmit()" value="Create">
+      </div>
+
+    </div>
+  </form>
+</div>

@@ -1,30 +1,5 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Hacker Bootstrap Theme</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
 
-                </li>
-                <li>
-                    <a href="//reddit.com/r/itsaunixsystem" target="_blank">H4x0rs Only</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-<div class="container">
+<div class="row">
 
     <h1>Terminal</h1>
     <!-- Jumbotron -->
@@ -33,6 +8,22 @@
             {{log}}
         </p>
     </div>
+
+    <ul class="list-group" >
+        <li *ngFor="let project of projects" class="list-group-item">
+          <div class="row">
+            <div class="col-md-2">{{project.name}}</div>
+            <div class="col-md-3">{{project.description}}</div>
+            <div class="col-md-3">{{project.path}}</div>
+            <div class="col-md-2">{{project.created_date| date}}</div>
+            <div class="col-md-2">
+              <button class="btn btn-danger" (click)="deleteProjcect(project._id, $event)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
 
     <div class="row tall-row">
         <div class="col-md-12">
@@ -48,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                        <a class="btn btn-primary" role="button">Add Commands</a>
+                        <a class="btn btn-primary" role="button" (click)="addCommand()">Add Commands</a>
                 </div>
             </div>
         </div>

@@ -1,11 +1,13 @@
+import { ProjectComponent } from './project/project.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ConsoleComponent } from './console/console.component';
 
 const routes: Routes = [
 
-  {path: '', redirectTo:'/console', pathMatch: 'full'},
-  {path: 'console', component: ConsoleComponent}
+  {path: '', redirectTo:'/projects', pathMatch: 'full'},
+  {path: 'projects', component: ProjectComponent},
+  {path: 'projects/:id', component: ConsoleComponent}
 
 ];
 

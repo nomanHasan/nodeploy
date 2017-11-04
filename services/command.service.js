@@ -4,6 +4,7 @@ var db = require('../db/db')
 exports.getCommands = function (id) {
     return new Promise((resolve, reject) => {
         db.findOne({_id: id}, (err, docs) => {
+            console.log(docs)
             if(err){
                 reject(err)
             }else{
